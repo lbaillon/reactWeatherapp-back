@@ -11,7 +11,11 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 const cors = require('cors');
-app.use(cors());
+app.use(cors({
+  origin: "*",
+  methods: "GET,HEAD,OPTIONS,POST,PUT,DELETE",
+  allowedHeaders: "Content-Type, Authorization"
+}));
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -21,5 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+app.options("*", cors());
 
 module.exports = app;
