@@ -4,8 +4,20 @@
     "src": "app.js",
     "use": "@vercel/node"
   }],
-  "routes": [{
-    "src": "/(.*)",
-    "dest": "app.js"
-  }]
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET,HEAD,OPTIONS,POST,PUT" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" }
+      ]
+    }
+  ]
  }
