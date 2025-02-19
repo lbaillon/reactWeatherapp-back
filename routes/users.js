@@ -76,5 +76,4 @@ router.delete("/cities/:city", async (req, res) => {
 })
 
 
-
 module.exports = router;
