@@ -11,7 +11,7 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 const cors = require('cors');
-app.use(cors());
+app.use(cors({origin: "*"}));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*"); // Autorise toutes les origines
