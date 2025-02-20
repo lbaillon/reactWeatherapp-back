@@ -14,7 +14,13 @@ const db = new sqlite3.Database("./database.sqlite", (err) => {
 //       throw error;
 //     }})
 
-//   db.run(`CREATE TABLE Users (username TEXT NOT NULL, email TEXT NOT NULL, password TEXT NOT NULL, token TEXT NOT NULL, cities TEXT DEFAULT '["Paris"]' )`)
+//   db.run('DROP TABLE IF EXISTS Cities', error => {
+//     if (error) {
+//       throw error;
+//     }})
+
+//   db.run(`CREATE TABLE Users (username TEXT NOT NULL, email TEXT NOT NULL, password TEXT NOT NULL, token TEXT PRIMARY KEY)`)
+//   db.run(`CREATE TABLE Cities (cityname TEXT NOT NULL, token TEXT NOT NULL, FOREIGN KEY (token) REFERENCES USERS(token))`)
 // })
 
 module.exports = db
